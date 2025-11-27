@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You Sayang 🩵</title>
+
+<style>
+    :root {
+        --dark-color: #0c0c0c;
+        --stem-top: #a7ffee;
+        --stem-bottom: #54b8aa;
+    }
+
+    /* Background .night */
+    .night {
+        position: fixed;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        filter: blur(0.1vmin);
+        background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
+            radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)),
+            repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px),
+            repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px),
+            repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px),
+            linear-gradient(90deg, #00fffa, #f0f0f0);
+        z-index: -1;
+    }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        color: #a7ffee; /* Teks lebih gelap */
+        text-align: center;
+        position: relative;
+    }
+
+    /* ANIMASI TEKS MUNCUL */
+    @keyframes textReveal {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h1 {
+        font-size: 27px;
+        margin-bottom: 35px;
+        z-index: 2;
+        opacity: 0;
+
+        /* Delay biar smooth */
+        animation: textReveal 1s ease forwards;
+
+        /* SHADOW WARNA BATANG BUNGA */
+        text-shadow: 
+            0 0 8px var(--stem-top),
+            0 0 12px var(--stem-bottom);
+    }
+
+    /* TOMBOL KOTAK + ANIMASI WARNA */
+    button {
+        padding: 14px 34px;
+        background: linear-gradient(to top, var(--stem-bottom), var(--stem-top));
+        color: #0b3b36;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.25s;
+        z-index: 2;
+
+        /* Glow */
+        
+        
+        /* Animasi muncul lebih lambat dari teks */
+        opacity: 0;
+        animation: textReveal 1.2s ease forwards;
+        animation-delay: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 18px var(--stem-top), 0 0 30px var(--stem-bottom);
+    }
+
+    /* Animasi saat klik */
+    button:active {
+        transform: scale(0.92);
+        background: linear-gradient(to bottom, var(--stem-top), var(--stem-bottom));
+        box-shadow: 0 0 8px var(--stem-bottom);
+    }
+
+    .love-btn {
+    font-size: 55px;         /* ukuran emoji */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 20px;
+    transition: 0.25s;
+    animation: textReveal 1.2s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+/* Glow */
+.love-btn:hover {
+    transform: scale(1.1);
+    text-shadow: 
+        0 0 15px var(--stem-top),
+        0 0 25px var(--stem-bottom);
+}
+
+.love-btn:active {
+    transform: scale(0.9);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="night"></div>
+
+<div class="intro-content">
+    <h1>aku punya sesuatu untuk kamu sayang</h1>
+
+    <button class="love-btn" onclick="openPage()">🩵</button>
+</div>
+
+<script>
+function openPage() {
+    window.location.href = "dist/index.html";
+}
+</script>
+
+
+</body>
+</html>
